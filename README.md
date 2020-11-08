@@ -1,6 +1,6 @@
 # My DQN implementation as PL system
 The separate parts:
-- datamodule
-- loggers
+- data module
+- callbacks
 - PL module
 - agent

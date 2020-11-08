@@ -1,5 +1,14 @@
 import numpy as np
 import pytorch_lightning as pl
+import torch
+import os
+from torch import nn
+import torch.nn.functional as F
+from torchvision import transforms
+from torch.utils.data import DataLoader
+from torch.utils.data import random_split
+from pytorch_lightning.callbacks import Callback
+import gym
 
 BATCH_SIZE = 16  # size of the batches
 LR = 1e-2  # learning rate
