@@ -5,4 +5,5 @@ env
 .pytest_cache
 .coverage
 .idea
-
+lightning_logs
+.ckpt

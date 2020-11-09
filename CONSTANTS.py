@@ -1,13 +1,14 @@
 import numpy as np
-import pytorch_lightning as pl
-import torch
 import os
+import torch
 from torch import nn
 import torch.nn.functional as F
-from torchvision import transforms
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Dataset
 from torch.utils.data import random_split
+from torchvision import transforms
+import pytorch_lightning as pl
 from pytorch_lightning.callbacks import Callback
+from collections import namedtuple, deque
 import gym
 
 BATCH_SIZE = 16  # size of the batches
@@ -23,3 +24,4 @@ EPS_END = 0.01  # final value of epsilon
 EPISODE_LENGTH = 200  # max length of an episode
 MAX_EPISODE_REWARD = 200  # max episode reward in the environment
 
+Experience = namedtuple('Experience', field_names=['state', 'action', 'reward', 'done', 'new_state'])

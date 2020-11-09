@@ -1,6 +1,6 @@
 # My DQN implementation as PL system
 The separate parts:
-- data module
-- callbacks
+- Data module
 - PL module
-- agent
+- Callbacks
+- Nets
