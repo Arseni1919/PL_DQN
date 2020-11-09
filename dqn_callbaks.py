@@ -10,8 +10,9 @@ class DQNCallback(Callback):
         print('--- trainer is init now ---')
 
     def on_train_end(self, trainer, pl_module):
-        print('--- training ends ---')
+        # print('--- training ends ---')
+        torch.save(pl_module.net.state_dict(), "example.ckpt")
 
     def on_train_epoch_end(self, trainer, pl_module, outputs):
         """Called when the train epoch ends."""
-        torch.save(pl_module.net.state_dict(), "example.ckpt")
+        pass

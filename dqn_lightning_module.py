@@ -24,8 +24,8 @@ class DQNLightningModule(pl.LightningModule):
         return self.net(x)
 
     def training_step(self, batch, batch_idx):
-        epsilon = max(EPS_END, EPS_START - (self.global_step + 1) / EPS_LAST_FRAME)
-
+        epsilon = max(EPS_END, EPS_START - self.global_step / EPS_LAST_FRAME)
+        # print(f'\n{self.global_step} - {EPS_LAST_FRAME} - {epsilon}\n')
         reward, done = self._play_step(epsilon)
         self.episode_reward += reward
         if done:
@@ -37,7 +37,7 @@ class DQNLightningModule(pl.LightningModule):
         if self.global_step % SYNC_RATE:
             self.target_net.load_state_dict(self.net.state_dict())
 
-        self.log('total reward', self.total_reward)
+        self.log('current total reward', self.total_reward)
         self.log('train loss', loss)
 
         return loss
@@ -74,5 +74,4 @@ class DQNLightningModule(pl.LightningModule):
 
         expected_state_action_values = next_state_values * GAMMA + np.array(rewards, dtype=np.float32)
 
-        # loss = F.cross_entropy(y_hat, y_target_hat)
         return nn.MSELoss()(state_action_values, expected_state_action_values)

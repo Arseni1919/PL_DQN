@@ -7,3 +7,4 @@ env
 .idea
 lightning_logs
 .ckpt
+example.ckpt

@@ -10,7 +10,7 @@ def get_action(state, net):
     return int(action.item())
 
 
-def main():
+def play(times: int = 1):
     env = gym.make(ENV)
     state = env.reset()
 
@@ -19,7 +19,7 @@ def main():
 
     game = 0
     total_reward = 0
-    while game < 10:
+    while game < times:
         # action = env.action_space.sample()
         action = get_action(state, model)
         next_state, reward, done, _ = env.step(action)
@@ -36,4 +36,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    play(10)

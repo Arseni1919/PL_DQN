@@ -3,6 +3,7 @@ from dqn_lightning_module import DQNLightningModule
 from dqn_datamodule import DQNDataModule
 from dqn_callbaks import DQNCallback
 from dqn_dataset import DQNDataset
+from try_weights import play
 
 
 def main():
@@ -17,10 +18,12 @@ def main():
     #     early_stop_callback=False,
     #     val_check_interval=100
     # )
-    trainer = pl.Trainer(callbacks=[DQNCallback()], max_epochs=200)
+    trainer = pl.Trainer(callbacks=[DQNCallback()], max_epochs=MAX_EPOCHS)
     # trainer.save_checkpoint("example.ckpt")
 
     trainer.fit(model=model, datamodule=data_module)
+
+    play(NUMBER_OF_GAMES)
 
 
 if __name__ == '__main__':
