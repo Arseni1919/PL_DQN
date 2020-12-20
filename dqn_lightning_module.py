@@ -39,6 +39,9 @@ class DQNLightningModule(pl.LightningModule):
 
         self.log('current total reward', self.total_reward)
         self.log('train loss', loss)
+        # self.log('epsilon', epsilon)
+        # if batch_idx % 1000 == 0:
+        #     print(epsilon)
 
         return loss
 

@@ -19,3 +19,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    # to run tensorboard:
+    # tensorboard --logdir lightning_logs
+

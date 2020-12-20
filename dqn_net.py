@@ -10,9 +10,13 @@ class DQN(nn.Module):
     def __init__(self, obs_size: int, n_action: int):
         super(DQN, self).__init__()
         self.net = nn.Sequential(
-            nn.Linear(obs_size, 128),
+            nn.Linear(obs_size, 256),
             nn.ReLU(),
-            nn.Linear(128, n_action)
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            # nn.Linear(128, 128),
+            # nn.ReLU(),
+            nn.Linear(128, n_action),
         )
 
     def forward(self, x):
