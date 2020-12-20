@@ -6,7 +6,7 @@ The separate parts:
 - Callbacks
 - Data set
 
-`'LunarLander-v2'` parameters:
+## `'LunarLander-v2'` parameters:
 ```
 MAX_EPOCHS = 150  # maximum epoch to execute
 BATCH_SIZE = 64  # size of the batches
