@@ -11,15 +11,15 @@ from pytorch_lightning.callbacks import Callback
 from collections import namedtuple, deque
 import gym
 
-MAX_EPOCHS = 150  # maximum epoch to execute
+MAX_EPOCHS = 300  # maximum epoch to execute
 BATCH_SIZE = 64  # size of the batches
 LR = 1e-3  # learning rate
-# ENV = "CartPole-v0"  # gym environment tag
-ENV = 'LunarLander-v2'
+ENV = "CartPole-v0"  # gym environment tag
+# ENV = 'LunarLander-v2'
 # ENV='MountainCar-v0'
 GAMMA = 0.99  # discount factor
 SYNC_RATE = 10  # how many frames do we update the target network
-REPLAY_SIZE = 20000  # capacity of the replay buffer
+REPLAY_SIZE = 1000  # capacity of the replay buffer
 WARM_START_STEPS = REPLAY_SIZE  # how many samples do we use to fill our buffer at the start of training
 
 # EPISODE_LENGTH = 200  # max length of an episode
